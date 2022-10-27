@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<form id="form" method="post" enctype="multipart/form-data"
+      data-pasley-validate class="form-horizontal form-label-left">
+    <div class="form-groupe ">
+        <div class="col-md-12" id="dropzone">
+            <div action="/Home/UploadFiles" class="dropzone" id="uploader">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div>
+        <button class="btn btn-primary">
+            <a class="nav-link text-decoration-none text-reset" asp-area="" asp-controller="Home" asp-action="AllFiles">Show all files</a>
+        </button>
+    </div>
+</form>

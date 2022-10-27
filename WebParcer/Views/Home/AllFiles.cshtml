@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>All files on sever</h1>
+
+<table class="table table-stripet">
+    <thead>
+        <tr>
+            <th>
+                <h2>File name</h2>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var file in ViewBag.AllFiles)
+        {
+            <tr>
+                <td class="col-md-10">
+                    @file
+                </td>
+                <td class="col-md-2">
+                    <button class="file-content-btn btn btn-primary">@Html.ActionLink("Show content", "FileContent", new {filename =  file }, new { @class = "text-decoration-none text-reset"})</button>
+                </td>
+            </tr>          
+        }
+    </tbody>
+</table>
+<script>
+    var button = document.getElementsByClassName('file-content-btn')
+    button[0].addEventListener('click', function () {
+        alert('Данная операция может занять много времени! Минуту или даже больше');
+    });
+</script>

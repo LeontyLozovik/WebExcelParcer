@@ -1,0 +1,71 @@
+﻿@using WebParcer.Models.TableModels
+@model TableModelBase
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-stripet">
+    <tr>
+        <th class="col-md-1">
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.InBalanceActive)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.InBalancePassive)
+        </th>
+        <th class="col-md-3">
+            <div class="d-flex">
+                <div class="p-2">
+                    @Html.DisplayNameFor(model => model.Debit)
+                </div>
+                <div class="ml-auto p-2 offset-md-3">
+                    @Html.DisplayNameFor(model => model.Credit)
+                </div> 
+            </div>
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.OutBalanceActive)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.OutBalancePassive)
+        </th>
+    </tr>
+</table>
+    
+@foreach (var name in ViewBag.Names)
+{
+    <br>
+    <h4 class="text-center">@ViewData[name + "Tag"]</h4>
+    <br>
+    <table>
+        @foreach (var record in ViewData[name])
+        {
+            <tr>
+                <td class="col-md-1">
+                    @record.B_sch
+                </td>
+                <td class="col-md-2 text-center">
+                    @record.InBalanceActive
+                </td>
+                <td class="col-md-1 text-center">
+                    @record.InBalancePassive
+                </td>
+                <td class="col-md-2 text-center">
+                    @record.Debit
+                </td>
+                <td class="col-md-2 text-center">
+                    @record.Credit
+                </td>
+                <td class="col-md-2 text-center">
+                    @record.OutBalanceActive
+                </td>
+                <td class="col-md-2 text-center">
+                    @record.OutBalanceActive
+                </td>
+            </tr>
+        }
+    </table>
+}      
